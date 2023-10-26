@@ -19,6 +19,75 @@ tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
 taps = 0
+writer = Turtle()
+tracer(False)
+animales = [
+    "🐶",  # Dog
+    "🐱",  # Cat
+    "🐭",  # Mouse
+    "🐹",  # Hamster
+    "🐰",  # Rabbit
+    "🦊",  # Fox
+    "🐻",  # Bear
+    "🐼",  # Panda
+    "🐨",  # Koala
+    "🐯",  # Tiger
+    "🦁",  # Lion
+    "🐮",  # Cow
+    "🐷",  # Pig
+    "🐸",  # Frog
+    "🐵",  # Monkey
+    "🦄",  # Unicorn
+    "🐔",  # Chicken
+    "🐧",  # Penguin
+    "🐦",  # Bird
+    "🐤",  # Baby Chick
+    "🦉",  # Owl
+    "🦆",  # Duck
+    "🐥",  # Front-Facing Baby Chick
+    "🦜",  # Parrot
+    "🦢",  # Swan
+    "🕊️",  # Dove
+    "🦚",  # Peacock
+    "🦃",  # Turkey
+    "🐍",  # Snake
+    "🐢",  # Turtle
+    "🦎",  # Lizard
+    "🐊",   # Crocodile
+    "🐶",  # Dog
+    "🐱",  # Cat
+    "🐭",  # Mouse
+    "🐹",  # Hamster
+    "🐰",  # Rabbit
+    "🦊",  # Fox
+    "🐻",  # Bear
+    "🐼",  # Panda
+    "🐨",  # Koala
+    "🐯",  # Tiger
+    "🦁",  # Lion
+    "🐮",  # Cow
+    "🐷",  # Pig
+    "🐸",  # Frog
+    "🐵",  # Monkey
+    "🦄",  # Unicorn
+    "🐔",  # Chicken
+    "🐧",  # Penguin
+    "🐦",  # Bird
+    "🐤",  # Baby Chick
+    "🦉",  # Owl
+    "🦆",  # Duck
+    "🐥",  # Front-Facing Baby Chick
+    "🦜",  # Parrot
+    "🦢",  # Swan
+    "🕊️",  # Dove
+    "🦚",  # Peacock
+    "🦃",  # Turkey
+    "🐍",  # Snake
+    "🐢",  # Turtle
+    "🦎",  # Lizard
+    "🐊"   # Crocodile
+]
+
 
 
 def square(x, y):
@@ -26,7 +95,8 @@ def square(x, y):
     up()
     goto(x, y)
     down()
-    color('black', 'white')
+    # color('black', 'white')
+    color("navyblue", "orange")
     begin_fill()
     for count in range(4):
         forward(50)
@@ -60,6 +130,15 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+        if hide.count(False) > 63:
+            print("Ganaste!!")
+            writer.up()
+            # Se mueve a la posición indicada
+            writer.goto(-150,-250)
+            # Le asigna color al lápiz
+            writer.color('black')
+            # Escribe lo que se indica (Texto, align=lado al que estará pegado, font=Tipo de letra)
+            writer.write('Ganaste un auto!!, Felicidades', align='left',font=('Arial',14,'normal'))
 
 
 def draw():
@@ -68,9 +147,6 @@ def draw():
     goto(0, 0)
     shape(car)
     stamp()
-
-    bgpic("z.jpeg")
-
     # Dibuja la memoria de abajo hacia arriba, de izquierda a derecha
     for count in range(64):
         if hide[count]:
@@ -87,15 +163,15 @@ def draw():
         goto(x + 2, y)
         color('black')
         # Muestra el contenido de la carta
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(animales[mark], font=('Arial', 12, 'normal'))
+
 
     # Todo lo que esta en el buffer de dibujo se actualiza en la ventana
     update()
     # 
     ontimer(draw, 100)
 
-writer = Turtle()
-tracer(False)
+
 def info_alumnos():
     # Esconde el triangulo de turtle
     writer.hideturtle()
@@ -115,7 +191,8 @@ def info_alumnos():
 
 info_alumnos()
 # shuffle(tiles)
-setup(420, 420, 370, 0)
+setup(420, 600, 370, 0)
+bgcolor('lightblue')
 addshape(car)
 hideturtle()
 tracer(False)
