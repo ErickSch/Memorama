@@ -159,9 +159,9 @@ def draw():
 
     up()
     goto(100, 225)
-    write('taps:', align='left',font=('Arial',10,'normal'))
-    goto(130, 225)
-    write(taps)
+    write('taps:', align='left',font=('Arial',14,'normal'))
+    goto(150, 225)
+    write(taps, font=('Arial',14,'normal'))
 
     if hide.count(True) == 0:
         onscreenclick(None)
