@@ -1,13 +1,4 @@
-"""Memory, puzzle game of number pairs.
 
-Exercises:
-
-1. Count and print how many taps occur.
-2. Decrease the number of tiles to a 4x4 grid.
-3. Detect when all tiles are revealed.
-4. Center single-digit tile.
-5. Use letters instead of tiles.
-"""
 
 from random import *
 from turtle import *
@@ -95,7 +86,6 @@ def square(x, y):
     up()
     goto(x, y)
     down()
-    # color('black', 'white')
     color("navyblue", "orange")
     begin_fill()
     for count in range(4):
@@ -117,9 +107,11 @@ def xy(count):
 def tap(x, y):
     """Update mark and hidden tiles based on tap."""
     global taps
-    taps += 1
     spot = index(x, y)
     mark = state['mark']
+
+    if spot >= 0 and spot <= 63:
+        taps += 1
 
     # Mark is None -> es la primera carta que se destapa
     # mark == spot -> estoy dando click obre la misma carta
@@ -131,7 +123,6 @@ def tap(x, y):
         hide[mark] = False
         state['mark'] = None
         if hide.count(False) > 63:
-            print("Ganaste!!")
             writer.up()
             # Se mueve a la posición indicada
             writer.goto(-150,-250)
@@ -166,6 +157,15 @@ def draw():
         write(animales[mark], font=('Arial', 12, 'normal'))
 
 
+    up()
+    goto(100, 225)
+    write('taps:', align='left',font=('Arial',10,'normal'))
+    goto(130, 225)
+    write(taps)
+
+    if hide.count(True) == 0:
+        onscreenclick(None)
+
     # Todo lo que esta en el buffer de dibujo se actualiza en la ventana
     update()
     # 
@@ -177,21 +177,26 @@ def info_alumnos():
     writer.hideturtle()
     # Levanta el lápiz
     writer.up()
-    # Se mueve a la posición indicada
-    writer.goto(-100,190)
-    # Le asigna color al lápiz
+    writer.goto(-80, 270)
     writer.color('blue')
+    writer.write('Memorama', font=('Arial', 20, 'normal'))
+    # Se mueve a la posición indicada
+    writer.goto(-200,235)
+    # Le asigna color al lápiz
+    writer.color('black')
     # Escribe lo que se indica (Texto, align=lado al que estará pegado, font=Tipo de letra)
     writer.write('Erick Schiller Echavarria A01740804', align='left',font=('Arial',10,'normal'))
     # Se dirige a la posición indicada
-    writer.goto(-100,170)
+    writer.goto(-200,215)
     # Escribe lo que se indica (Texto, align=lado al que estará pegado, font=Tipo de letra)
-    writer.write('Emilio Rizo de la Mora A01721612', align='left',font=('Arial',10,'normal'))
+    writer.write('Eugenia Uresti Arriaga A01284839', align='left',font=('Arial',10,'normal'))
     
 
+title('Erick Schiller y Eugenia Uresti')
+bgcolor('#B0E0E6')
 info_alumnos()
 # shuffle(tiles)
-setup(420, 600, 370, 0)
+setup(420, 620, 370, 0)
 bgcolor('lightblue')
 addshape(car)
 hideturtle()
