@@ -69,6 +69,8 @@ def draw():
     shape(car)
     stamp()
 
+    bgpic("z.jpeg")
+
     # Dibuja la memoria de abajo hacia arriba, de izquierda a derecha
     for count in range(64):
         if hide[count]:
