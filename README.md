@@ -5,22 +5,57 @@
 
 ## Modificaciones
 
-### Título...
-- Descripción...
+### Taps y color de fondo
+- Cuenta y despliega el numero de taps y cambia el color de fondo de la memorama 
 - Autor: Eugenia Uresti.
 - Código:
 
 ```python
-    # Agregar el código
+taps = 0
+def square(x, y):
+    color('black', '#F0FFFF')
+
+def tap(x, y):
+    global taps
+
+    if spot >= 0 and spot <= 63:
+        taps += 1
+
+def draw():
+    up()
+    goto(100, 225)
+    write('taps:', align='left',font=('Arial',10,'normal'))
+    goto(130, 225)
+    write(taps)
+
+    if hide.count(True) == 0:
+        onscreenclick(None)
+
+bgcolor('#B0E0E6')
 ```
 
-### Título...
-- Descripción...
+### Nombres de los integrantes del equipo
+- Despliega los nombres de los integrantes en una parte fuera de la memorama y cambia el nombre de la ventana por los nombres de los integrantes
 - Autor: Eugenia Uresti.
 - Código:
 
 ```python
-    # Agregar el código
+writer = Turtle()
+tracer(False)
+def info_alumnos():
+    writer.hideturtle()
+    writer.up()
+    writer.goto(-80, 270)
+    writer.color('blue')
+    writer.write('Memorama', font=('Arial', 20, 'normal'))
+    writer.goto(-200,235)
+    writer.color('black')
+    writer.write('Erick Schiller Echavarria A01740804', align='left',font=('Arial',10,'normal'))
+    writer.goto(-200,215)
+    writer.write('Eugenia Uresti Arriaga A01284839', align='left',font=('Arial',10,'normal'))
+
+title('Erick Schiller y Eugenia Uresti')
+info_alumnos()
 ```
 
 ### Detectar si todos los cuadros se han destapado
@@ -123,3 +158,6 @@ animales = [
 
 ## GIF del funcionamiento:
 ![GIF Ejemplo](GIF_Memorama.gif)
+
+## Videos
+Eugenia Uresti: https://drive.google.com/file/d/1ySRabsxG4LuKTnGe4KhDwn2OAscq8jhX/view?usp=sharing
