@@ -160,5 +160,5 @@ animales = [
 ![GIF Ejemplo](GIF_Memorama.gif)
 
 ## Videos
-Eugenia Uresti: https://drive.google.com/file/d/1ySRabsxG4LuKTnGe4KhDwn2OAscq8jhX/view?usp=sharing
-Erick Schiller: https://drive.google.com/file/d/1RHwUdSL4p7RVdY_dmH2PfqKegJVO_xNx/view?usp=sharing
+- Eugenia Uresti: https://drive.google.com/file/d/1ySRabsxG4LuKTnGe4KhDwn2OAscq8jhX/view?usp=sharing
+- Erick Schiller: https://drive.google.com/file/d/1RHwUdSL4p7RVdY_dmH2PfqKegJVO_xNx/view?usp=sharing
